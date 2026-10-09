@@ -1,4 +1,5 @@
 **Statistical Modelling 2**
+
 *Project overview*
 Repository for our five-person Statistical Modelling 2 group project at Queen Mary University of London.
 The project analysis, methods and report will be added once the assignment brief and dataset are available.
