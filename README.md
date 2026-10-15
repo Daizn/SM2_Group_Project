@@ -22,13 +22,18 @@ We'll use this repository to store our code, data, notes, outputs and reports.
 
 ## Workflow
 
-1. Pull the latest changes from GitHub before starting work.
+1. Pull the latest changes from GitHub.
 2. Save your work in the appropriate folder.
 3. Update `notes/who-did-what.docx` to record your contribution.
 4. Commit your changes with a clear message.
 5. Push your changes to GitHub.
-6. If someone else has changed the same file, resolve any merge conflicts before pushing.
-7. Pull regularly to keep your local copy up to date.
+
+##Important Notes
+-Avoid editing the same file as another group member at the same time.
+
+-If someone else has changed the same file, pull their changes and resolve any merge conflicts before pushing.
+
+-Keep your local copy up to date by pulling regularly.
 
 ## Group Members
 -Daniel Hasani
