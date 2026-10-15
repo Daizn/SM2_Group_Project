@@ -9,10 +9,15 @@ We'll use this repository to store our code, data, notes, outputs and reports.
 ## Repository Structure
 
 -`code/` - R scripts, including rough work.
+
 -`data/` - Datasets used in the project.
+
 -`outputs/` - Plots, tables and model results.
+
 -`notes/` - Decision notes and records of individual contributions.
+
 -`reports/` - Group report, individual reports and drafts.
+
 -`docs/` - Assignment brief and other project documents.
 
 ## Workflow
@@ -24,7 +29,11 @@ We'll use this repository to store our code, data, notes, outputs and reports.
 
 ## Group Members
 -Daniel Hasani
+
 -Owen Alexander Warner
+
 -Yurii Simkiv
+
 -Rayan Saheim Suleman
+
 -Nuuh Abdi Rashid Muhammad
