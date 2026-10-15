@@ -1,8 +1,8 @@
-# R scripts for group project. Include rough workings. On top of the file, set it as 
+## R scripts for group project. Include rough workings. On top of the file, set it as 
 
-## \#Analysis:
+\#Analysis:
 
-## \#Author:
+\#Author:
 
-## \#Purpose:
+\#Purpose:
 
