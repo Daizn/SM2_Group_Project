@@ -1,12 +1,12 @@
-Statistical Modelling II
+#Statistical Modelling II
 
-Project Overview
+##Project Overview
 
 This is our five-person Statistical Modelling II group project at Queen Mary University of London.
 
 We'll use this repository to store our code, data, notes, outputs and reports.
 
-Repository Structure
+##Repository Structure
 
 code/ - R scripts, including rough work.
 
@@ -20,7 +20,7 @@ reports/ - Group report, individual reports and drafts.
 
 docs/ - Assignment brief and other project documents.
 
-Workflow
+##Workflow
 
 Pull the latest changes before starting work.
 
@@ -32,7 +32,7 @@ Push your commits to GitHub.
 
 Pull regularly to keep your local copy up to date.
 
-Group Members
+##Group Members
 
 Daniel Hasani
 
