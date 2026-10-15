@@ -1,4 +1,5 @@
-## R scripts for group project. Include rough workings. On top of the file, set it as 
+## R scripts for group project. Include rough workings. 
+Top of file format should look like:
 
 \#Analysis:
 
