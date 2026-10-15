@@ -21,11 +21,14 @@ We'll use this repository to store our code, data, notes, outputs and reports.
 -`docs/` - Assignment brief and other project documents.
 
 ## Workflow
-1. Pull the latest changes before starting work.
+
+1. Pull the latest changes from GitHub before starting work.
 2. Save your work in the appropriate folder.
-3. Commit changes with a clear message.
-4. Push your commits to GitHub.
-5. Pull regularly to keep your local copy up to date.
+3. Update `notes/who-did-what.docx` to record your contribution.
+4. Commit your changes with a clear message.
+5. Push your changes to GitHub.
+6. If someone else has changed the same file, resolve any merge conflicts before pushing.
+7. Pull regularly to keep your local copy up to date.
 
 ## Group Members
 -Daniel Hasani
