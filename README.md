@@ -28,7 +28,7 @@ We'll use this repository to store our code, data, notes, outputs and reports.
 4. Commit your changes with a clear message.
 5. Push your changes to GitHub.
 
-##Important Notes
+## Important Notes
 -Avoid editing the same file as another group member at the same time.
 
 -If someone else has changed the same file, pull their changes and resolve any merge conflicts before pushing.
