@@ -27,4 +27,6 @@ plot(fitted(injury_glm), rstandard(injury_glm),
      xlab = "Fitted values", ylab = "Standardised Deviance Residuals")
 abline(h = 0, lty = 2)
 dev.off()
+#updating author profile
+
 
