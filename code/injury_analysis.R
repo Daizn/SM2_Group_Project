@@ -26,7 +26,7 @@ abline(h = 0, lty = 2)
 qqnorm(rstandard(injury_glm))
 qqline(rstandard(injury_glm))
 
-png("outputs/injury_diagnostics.png", width = 800, height = 600)
+png("outputs/injury_diagnostics/injury_diagnostics.png", width = 800, height = 600)
 plot(fitted(injury_glm), rstandard(injury_glm),
      xlab = "Fitted values", ylab = "Standardised Deviance Residuals")
 abline(h = 0, lty = 2)
