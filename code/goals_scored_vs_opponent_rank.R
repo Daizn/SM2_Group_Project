@@ -1,10 +1,10 @@
 #Analysis: Goals scored vs Opponent Rank
 #Author: Owen Warner
-#Purpose: Exlore relationship between opponent rank and goals scored using
+#Purpose: Explore relationship between opponent rank and goals scored using
 #linear regression, and assess model assumption using diagnostic plots.
 
 
-ashford_matches <- read.csv("ashford_matches.csv")
+ashford_matches <- read.csv("data/ashford_matches.csv")
 
 goals_scored <- ashford_matches$goals_scored
 opp_rank <- ashford_matches$opponent_rank

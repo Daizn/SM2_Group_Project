@@ -1,3 +1,7 @@
+#Purpose: To investigate how training load, previous injuries, age and minutes played relate to player injury risk.
+#Author: Rayan Suleman
+#Analysis: Fit a logistic regression model, estimate odds ratios and confidence intervals, assess model fit, and produce diagnostic plots.
+
 players <- read.csv("data/league_players.csv")
 
 table(players$injured)
