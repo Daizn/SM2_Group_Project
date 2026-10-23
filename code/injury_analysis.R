@@ -14,3 +14,4 @@ abline(h = 0, lty = 2)
 
 qqnorm(residuals(injury_glm, type = "deviance"))
 qqline(residuals(injury_glm, type = "deviance"))
+
