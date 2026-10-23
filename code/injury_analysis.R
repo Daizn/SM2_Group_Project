@@ -2,31 +2,15 @@ players <- read.csv("data/league_players.csv")
 
 table(players$injured)
 
-injury_glm <- glm(injured ~ training_load + prev_injuries + age + minutes_played, 
-                  family = binomial(link = "logit"), 
-                  data = players)
+injury_glm <- glm(injured ~ training_load + prev_injuries + age + minutes_played, family = binomial(link = "logit"), data = players)
 
 summary(injury_glm)
 
 exp(coef(injury_glm))
 exp(confint(injury_glm))
 
-cat("Residual Deviance:", deviance(injury_glm), "on", injury_glm$df.residual, "degrees of freedom\n")
-
-plot(fitted(injury_glm), rstandard(injury_glm),
-     xlab = "Fitted values",
-     ylab = "Standardised Deviance Residuals",
-     main = "Diagnostics: Residuals vs Fitted")
+plot(fitted(injury_glm), residuals(injury_glm, type = "deviance"))
 abline(h = 0, lty = 2)
 
-qqnorm(rstandard(injury_glm))
-qqline(rstandard(injury_glm))
-
-png("outputs/injury_diagnostics.png", width = 800, height = 600)
-plot(fitted(injury_glm), rstandard(injury_glm),
-     xlab = "Fitted values", ylab = "Standardised Deviance Residuals")
-abline(h = 0, lty = 2)
-dev.off()
-#updating author profile
-
-
+qqnorm(residuals(injury_glm, type = "deviance"))
+qqline(residuals(injury_glm, type = "deviance"))
