@@ -4,7 +4,7 @@
 #linear regression, and assess model assumption using diagnostic plots.
 
 
-ashford_matches <- read.csv("ashford_matches.csv")
+ashford_matches <- read.csv("data/ashford_matches.csv")
 
 goals_scored <- ashford_matches$goals_scored
 opp_rank <- ashford_matches$opponent_rank

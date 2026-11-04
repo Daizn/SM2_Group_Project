@@ -4,7 +4,7 @@
 # and goals conceded and investigate potential outliers.
 
 
-ashford_matches <- read.csv('ashford_matches.csv', header = T)
+ashford_matches <- read.csv('data/ashford_matches.csv', header = T)
 
 goals_scored <- ashford_matches$goals_scored
 goals_conceded <- ashford_matches$goals_conceded
