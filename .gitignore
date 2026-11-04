@@ -1,3 +1,11 @@
 .Rproj.user/
 .Rhistory
 .RData
+#Generated LaTeX files
+reports/*.aux
+reports/*.log
+reports/*.synctex.gz
+reports/*.fls
+reports/*.fdb_latexmk
+reports/*.out
+reports/*.toc
