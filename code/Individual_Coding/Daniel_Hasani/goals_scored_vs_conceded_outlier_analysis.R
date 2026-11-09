@@ -26,3 +26,6 @@ outliers <- which(abs(student_r)>3)
 plot(student_r, main = 'Studentised Residuals by Observation', xlab = 'Observation Number', ylab = 'Studentised Residual')
 abline(h = c(-3,3), col = 'red', lty = 2)
 text(outliers, student_r[outliers], labels = outliers, pos = 1 , col = 'red')
+
+#Goals scored had a weak, non-significant negative relationship with goals conceded (p = 0.26, R-squared = 0.03) 
+#Match 8 was an outlier as Ashford scored 8 goals and conceded none
