@@ -34,6 +34,13 @@ exp(c(-1.96, 1.96) * sqrt(VarCorr(glmer.fit)$team[1]))
 glm.fit1 <- glm(high ~ position + mins, family = binomial, data = players)
 anova(glmer.fit, glm.fit1)
 
+#proportion of the variation that is between clubs (intraclass correlation)
+VarCorr(glmer.fit)$team[1] / (VarCorr(glmer.fit)$team[1] + pi^2 / 3)
+
+#clubs as fixed effects in the same binary model
+glm.team <- update(glm.fit1, . ~ . + team)
+anova(glm.fit1, glm.team, test = "Chisq")
+
 #club effects with  95% int
 re <- ranef(glmer.fit, condVar = T)$team
 re.se <- sqrt(attr(re, "postVar")[1, 1, ])
@@ -43,6 +50,9 @@ round(club[order(club[, 1]), ], 2)
 
 #odds ratio relative to an average club
 round(exp(club["Ashford United", ]), 2)
+
+#number of Ashford United players not on and on high load
+table(players$high[players$team == "Ashford United"])
 
 #proportion of high load players at each club and in the whole league
 round(sort(tapply(players$high, players$team, mean)), 2)

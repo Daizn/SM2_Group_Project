@@ -44,3 +44,11 @@ round(exp(cbind(summary(polr.fit4)$coef[1:4, 1], summary(polr.fit4)$coef[1:4, 1]
 #estimated prob
 new.data <- data.frame(position = "DEF", mins = quantile(players$mins, c(0.25, 0.75)))
 cbind(new.data, round(predict(polr.fit4, new.data, type = "probs"), 2))
+
+#estimated prob of high load (levels 4 and 5) for the same players
+round(rowSums(predict(polr.fit4, new.data, type = "probs")[, 4:5]), 2)
+
+#same model with the sparse level 1 merged into level 2
+players$load4 <- factor(ifelse(players$training_load == 1, 2, players$training_load), levels = 2:5, ordered = T)
+polr.fit.m <- polr(load4 ~ position + mins, data = players, Hess = T)
+round(exp(cbind(summary(polr.fit.m)$coef[1:4, 1], summary(polr.fit.m)$coef[1:4, 1] - 1.96 * summary(polr.fit.m)$coef[1:4, 2], summary(polr.fit.m)$coef[1:4, 1] + 1.96 * summary(polr.fit.m)$coef[1:4, 2])), 2)

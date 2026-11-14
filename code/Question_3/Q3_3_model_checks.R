@@ -34,10 +34,27 @@ glm.fit1 <- glm(high ~ position + mins, family = binomial, data = players)
 summary(glm.fit1)
 exp(cbind(coef(glm.fit1), confint.default(glm.fit1)))
 
+#is position needed in the binary model?
+drop1(glm.fit1, test = "Chisq")
+
+#same model at the other cut-offs: load 3 or more and load 5
+glm.cut3 <- glm(I(training_load >= 3) ~ position + mins, family = binomial, data = players)
+glm.cut5 <- glm(I(training_load >= 5) ~ position + mins, family = binomial, data = players)
+round(exp(cbind(coef(glm.cut3), confint.default(glm.cut3))), 2)
+round(exp(cbind(coef(glm.cut5), confint.default(glm.cut5))), 2)
+
 #Cook's distances
 plot(cooks.distance(glm.fit1), type = "h", xlab = "Obs. number", ylab = "Cook's distance")
 max(cooks.distance(glm.fit1))
 
 #group the players into ten groups by fitted probability compare observed and expected
 groups <- cut(fitted(glm.fit1), quantile(fitted(glm.fit1), seq(0, 1, 0.1)), include.lowest = T)
-cbind(observed = tapply(players$high, groups, sum), expected = round(tapply(fitted(glm.fit1), groups, sum), 1))
+obs <- tapply(players$high, groups, sum)
+expd <- tapply(fitted(glm.fit1), groups, sum)
+n <- tapply(players$high, groups, length)
+cbind(n, observed = obs, expected = round(expd, 1))
+
+#Pearson statistic for the grouped table
+X2 <- sum((obs - expd)^2 / (expd * (1 - expd / n)))
+X2
+1 - pchisq(X2, 8)

@@ -1,0 +1,49 @@
+% Question 3 - training load and club variation
+% Author: Daniel Hasani
+% All numbers come from code/Question_3/Final_R_Code_Q3.R
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage{amsmath,booktabs}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\pagestyle{empty}
+
+\begin{document}
+
+\section*{Question 3: Training load and club variation}
+
+\emph{Which player characteristics are associated with a player's training load, and after accounting for them, how much does training load vary between clubs, and where does Ashford United sit?}
+
+\textbf{Aim and data.} First, we identify the player characteristics that are associated with training load, and then compare clubs after adjusting for them, so that differences in squad make-up are not mistaken for differences between clubs; this shows Ashford United whether its players' loads are unusual for their position and playing time. The analysis utilises all 620 players from the 24 clubs, with no missing values. Training load is an ordinal score from 1 to 5 with 20, 133, 239, 158 and 70 players at each level. The candidate predictors are position, minutes played, age, previous injuries and BMI; injury status is not used, as it is the outcome of Question~1.
+
+\textbf{Exploratory analysis.} Position shows no overall evidence of association with high load (levels 4--5; $X^2=5.15$, 3 df, $p=0.16$), while minutes played is associated with both high load (29\% to 47\% from the lowest to the highest third of minutes; $X^2=14.9$, 2 df, $p<0.001$) and position (median 3442 minutes for goalkeepers, 2135 for forwards; $X^2=140.2$, 6 df, $p<0.001$). The table is therefore not expected to be collapsible over minutes, and the odds ratios do change when minutes group is held fixed (Table~\ref{tab:q3}). However, the adjusted intervals all include 1 and the log-linear model does not need a position--load association given minutes group (deviance 3.40, 3 df, $p=0.33$), so the tables alone do not establish a position effect.
+
+\begin{table}[h]
+\centering\small
+\caption{Odds ratios (95\% CI) vs defenders: high load in the tables (left) and the final proportional odds model (right).}
+\label{tab:q3}
+\begin{tabular}{lcc@{\hspace{1.5em}}lc}
+\toprule
+ & Marginal & Adjusted for minutes & Term & Odds ratio \\
+\midrule
+Goalkeeper & 1.84 (1.04, 3.26) & 1.41 (0.78, 2.56) & Goalkeeper & 1.21 (0.70, 2.07) \\
+Midfielder & 1.22 (0.82, 1.81) & 1.42 (0.94, 2.15) & Midfielder & 1.59 (1.11, 2.26) \\
+Forward    & 1.00 (0.64, 1.58) & 1.32 (0.81, 2.15) & Forward & 1.97 (1.30, 2.98) \\
+ & & & Minutes (per 1000) & 2.02 (1.59, 2.56) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Model.} Load is ordered but not on an interval scale, so we fit a proportional odds model,
+\[
+\mathrm{logit}\,P(Y_i \le j) = \mu_j - \mathbf{x}_i^T\boldsymbol\beta, \qquad j=1,\dots,4,
+\]
+where $\mathbf{x}_i$ contains position (defender as baseline) and minutes played in thousands, the $\mu_j$ are cut points, and $\exp(\beta_k)$ is the odds ratio of a higher load category, assumed the same at every cut-off. Likelihood ratio tests removed BMI, age and previous injuries (together LRT $=4.74$, 3 df, $p=0.19$), kept position ($p=0.009$) and minutes ($p<0.001$), and did not support a position $\times$ minutes interaction ($p=0.29$). The model has lower AIC than a multinomial model, which does not assume proportional odds (1716.1 vs 1722.7), but the differences of cumulative logits from that fit are not constant, so we also fitted a logistic model at each cut-off.
+
+\textbf{Results.} Each extra 1000 minutes is associated with about twice the odds of a higher load category (Table~\ref{tab:q3}); for a defender the probability of high load increases from 0.22 to 0.37 between the quartiles of minutes. At equal minutes, forwards have around 2.0 times and midfielders around 1.6 times the odds of defenders, with no evidence that goalkeepers differ, so forwards' higher load is hidden in the raw comparison because they play fewer minutes. The forward odds ratio varies by cut-off with no trend: 3.08 (1.74, 5.45) for load 3 or more, 1.43 (0.88, 2.33) for 4 or more and 2.53 (1.21, 5.28) for 5; the tables split load at 4 or more, which helps explain why they show no position effect. Age, previous injuries and BMI show no evidence of association, so there is no evidence that injury-prone players are given lighter loads. Merging the sparse level 1 with level 2 hardly changes the results. In the binary model for high load no player is influential (maximum Cook's distance 0.014), but grouped observed and expected counts give borderline evidence of lack of fit ($X^2=15.7$, 8 df, $p=0.047$).
+
+\textbf{Clubs and Ashford United.} Clubs differ in load before adjustment (LRT $=43.5$, 23 df, $p=0.006$) and, with weaker evidence, after adjusting for position and minutes (LRT $=36.8$, 23 df, $p=0.034$). To measure the size of the club effect, we fitted a logistic model for high load with a random intercept for club, which needs a binary response. The club standard deviation is $\hat\sigma_b=0.23$ (95\% profile likelihood interval 0 to 0.50), so about 95\% of clubs have odds of high load between 0.64 and 1.57 times those of an average club. Only 1.6\% of the variation lies between clubs (intraclass correlation 0.016) and the random intercept does not improve the fit (LRT $p=0.32$; with clubs as fixed effects in the same binary model, $p=0.12$), so any club effect beyond squad make-up is small. Ashford United has 7 of its 25 players (28\%) on high load against 37\% league-wide; adjusted, its odds are 0.90 times an average club's (95\% interval 0.60--1.34), the 4th lowest of 24, so it is not distinguishable from average.
+
+\textbf{Conclusion and limitations.} Training load is associated mainly with minutes played and position; after allowing for these, club differences are small and Ashford United does not stand out. Results are associations only, and as load and minutes are measured over the same season the direction of their association is unknown. The forward effect varies by cut-off, the fit check is borderline, and the binary club model loses some information.
+
+\end{document}
