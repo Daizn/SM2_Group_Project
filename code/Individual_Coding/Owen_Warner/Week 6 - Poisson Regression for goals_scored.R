@@ -64,7 +64,7 @@ drop1(ashford.poisson.interaction, test = "Chisq")
 
 plot(fitted(ashford.poisson),rstandard(ashford.poisson, type = "deviance"),xlab = "Fitted values",ylab = "Standardized deviance residuals",main = "St Deviance Residuals vs Fitted Values")
 abline(h = 0, col = "red", lty = 2)
-#no smooth curved pattern suggesting a missing polynomial term
+#no smooth curved pattern suggesting not missing a polynomial term
 
 qqnorm(rstandard(ashford.poisson, type = "deviance"),main = "QQ-plot of standardized deviance residuals")
 qqline(rstandard(ashford.poisson, type = "deviance"), col = "red")
