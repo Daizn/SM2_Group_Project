@@ -1,0 +1,7 @@
+"Model","AIC","Deviance"
+"Additive Linear",547.27,539.27
+"Additive Factor",549.08,535.08
+"Additive High Load",544.46,536.46
+"Interaction Linear",535.3,525.3
+"Interaction High Load",537.03,527.03
+"Interaction Factor",539.85,517.85
