@@ -17,3 +17,6 @@ reports/**/*.fls
 reports/**/*.fdb_latexmk
 reports/**/*.out
 reports/**/*.toc
+
+#LaTeX build folders
+build/
